@@ -21,11 +21,12 @@ namespace Search_Tool
         private void search_btn_Click(object sender, EventArgs e)
         {
             string[] dir_data = ParseDirectory(selected_path.Text);
-            dataGridView1.RowCount = dir_data.Length;
+            var result = dir_data.Where(data => data.Contains(keyword_box.Text)).ToArray();
+            dataGridView1.RowCount = result.Length;
             dataGridView1.ColumnCount = 1;
-            for (int i = 0; i < dir_data.Length - 1; i++)
+            for (int i = 0; i < result.Length; i++)
             {
-                dataGridView1.Rows[i].Cells[0].Value = dir_data[i];
+                dataGridView1.Rows[i].Cells[0].Value = result[i];
             }
             dataGridView1.Refresh();
             dataGridView1.Update();
@@ -33,12 +34,26 @@ namespace Search_Tool
 
         public string[] ParseDirectory(string path)
         {
+            List<string> files = new List<string>();
+
             if (!Directory.Exists(path)) return new string[] { };
 
-            return Directory.GetFileSystemEntries(path);
+            foreach (string entry in Directory.GetFileSystemEntries(path))
+            {
+                if (File.Exists(entry))
+                {
+                    files.Add(entry);
+                }
+                else if (Directory.Exists(entry))
+                {
+                    files.AddRange(ParseDirectory(entry));
+                }
+            }
+
+            return files.ToArray();
         }
 
-        private void choose_start_dir_Click(object sender, EventArgs e)
+            private void choose_start_dir_Click(object sender, EventArgs e)
         {
             choose_folder_dialog.Description = "Выберите директорию, в которой будет начинаться поиск";
             choose_folder_dialog.ShowNewFolderButton = true;
