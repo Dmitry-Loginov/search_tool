@@ -79,7 +79,6 @@ namespace Search_Tool
             // 
             // choose_folder_dialog
             // 
-            this.choose_folder_dialog.HelpRequest += new System.EventHandler(this.choose_folder_dialog_HelpRequest);
             // 
             // choose_start_dir
             // 

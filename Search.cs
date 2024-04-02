@@ -113,11 +113,6 @@ namespace Search_Tool
             }
         }
 
-        private void choose_folder_dialog_HelpRequest(object sender, EventArgs e)
-        {
-
-        }
-
         private void Search_Load(object sender, EventArgs e)
         {
             dataGridView1.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
