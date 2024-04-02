@@ -39,6 +39,8 @@ namespace Search_Tool
             this.selected_path = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ignore_case = new System.Windows.Forms.CheckBox();
+            this.deep_search = new System.Windows.Forms.CheckBox();
+            this.regexp_mode = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,12 +144,36 @@ namespace Search_Tool
             this.ignore_case.UseVisualStyleBackColor = true;
             this.ignore_case.CheckedChanged += new System.EventHandler(this.ignore_case_CheckedChanged);
             // 
+            // deep_search
+            // 
+            this.deep_search.AutoSize = true;
+            this.deep_search.Checked = true;
+            this.deep_search.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.deep_search.Location = new System.Drawing.Point(267, 87);
+            this.deep_search.Name = "deep_search";
+            this.deep_search.Size = new System.Drawing.Size(123, 20);
+            this.deep_search.TabIndex = 7;
+            this.deep_search.Text = "Искать вглубь";
+            this.deep_search.UseVisualStyleBackColor = true;
+            // 
+            // regexp_mode
+            // 
+            this.regexp_mode.AutoSize = true;
+            this.regexp_mode.Location = new System.Drawing.Point(18, 113);
+            this.regexp_mode.Name = "regexp_mode";
+            this.regexp_mode.Size = new System.Drawing.Size(234, 20);
+            this.regexp_mode.TabIndex = 8;
+            this.regexp_mode.Text = "Режим регулярного выражения";
+            this.regexp_mode.UseVisualStyleBackColor = true;
+            // 
             // Search
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1372, 554);
+            this.Controls.Add(this.regexp_mode);
+            this.Controls.Add(this.deep_search);
             this.Controls.Add(this.ignore_case);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.selected_path);
@@ -178,6 +204,8 @@ namespace Search_Tool
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.CheckBox ignore_case;
+        private System.Windows.Forms.CheckBox deep_search;
+        private System.Windows.Forms.CheckBox regexp_mode;
     }
 }
 
