@@ -65,6 +65,9 @@ namespace Search_Tool
                 }
                 else if (Directory.Exists(entry))
                 {
+                    FileInfo fileInfo = new FileInfo(entry);
+                    if ((fileInfo.Attributes & FileAttributes.System) == FileAttributes.System &&
+                (fileInfo.Attributes & FileAttributes.Hidden) == FileAttributes.Hidden) continue;
                     files.AddRange(ParseDirectory(entry));
                 }
             }
