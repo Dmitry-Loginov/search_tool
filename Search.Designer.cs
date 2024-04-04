@@ -39,6 +39,7 @@ namespace Search_Tool
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.open_cmenu_item = new System.Windows.Forms.ToolStripMenuItem();
+            this.export_result_cmenu_item = new System.Windows.Forms.ToolStripMenuItem();
             this.selected_path = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.ignore_case = new System.Windows.Forms.CheckBox();
@@ -46,7 +47,6 @@ namespace Search_Tool
             this.regexp_mode = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.export_result_cmenu_item = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -121,16 +121,22 @@ namespace Search_Tool
             this.open_cmenu_item,
             this.export_result_cmenu_item});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(211, 80);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(192, 52);
             this.contextMenuStrip1.Click += new System.EventHandler(this.contextMenuStrip1_Click);
             // 
             // open_cmenu_item
             // 
             this.open_cmenu_item.Enabled = false;
             this.open_cmenu_item.Name = "open_cmenu_item";
-            this.open_cmenu_item.Size = new System.Drawing.Size(210, 24);
+            this.open_cmenu_item.Size = new System.Drawing.Size(191, 24);
             this.open_cmenu_item.Text = "Открыть";
             this.open_cmenu_item.ToolTipText = "Открыть выбранный элемент";
+            // 
+            // export_result_cmenu_item
+            // 
+            this.export_result_cmenu_item.Name = "export_result_cmenu_item";
+            this.export_result_cmenu_item.Size = new System.Drawing.Size(191, 24);
+            this.export_result_cmenu_item.Text = "Выгрузить отчет";
             // 
             // selected_path
             // 
@@ -207,12 +213,7 @@ namespace Search_Tool
             this.помощьToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F1;
             this.помощьToolStripMenuItem.Size = new System.Drawing.Size(110, 24);
             this.помощьToolStripMenuItem.Text = "Помощь   F1";
-            // 
-            // export_result_cmenu_item
-            // 
-            this.export_result_cmenu_item.Name = "export_result_cmenu_item";
-            this.export_result_cmenu_item.Size = new System.Drawing.Size(210, 24);
-            this.export_result_cmenu_item.Text = "Выгрузить отчет";
+            this.помощьToolStripMenuItem.Click += new System.EventHandler(this.помощьToolStripMenuItem_Click);
             // 
             // Search
             // 

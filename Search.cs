@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
@@ -230,9 +231,12 @@ namespace Search_Tool
                     worksheet.Column(col).AutoFit();
                 }
 
-                // Сохраняем файл Excel на диск
-                FileInfo file = new FileInfo($"результат {date_time_export}.xlsx");
-                package.SaveAs(file);
+                string projectPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+
+                // Путь к папке reports внутри проекта
+                string filePath = Path.Combine(projectPath, $"результат {date_time_export}.xlsx");
+
+                package.SaveAs(filePath);
             }
 
             Console.WriteLine("Файл Excel успешно создан.");
@@ -261,6 +265,11 @@ namespace Search_Tool
             {
                 MessageBox.Show($"Указанный путь не существует", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Process.Start("Help.pdf");
         }
     }
 }
