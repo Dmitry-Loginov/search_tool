@@ -28,7 +28,7 @@ namespace Search_Tool
 
         private void search_btn_Click(object sender, EventArgs e)
         {
-            if (regexp_mode.Checked) Regex = CreateRegexByKeywords();
+            if (regexp_mode.Checked) Regex = CreateRegexByKeywords(); else RegexpError = false;
             if (RegexpError)
             { 
                 dataGridView1.Rows.Clear();
@@ -123,7 +123,9 @@ namespace Search_Tool
             try
             {
                 var reg_options = ignore_case.Checked ? RegexOptions.IgnoreCase : RegexOptions.None;
-                return new Regex($@"{SearchedText}", reg_options);
+                var result = new Regex($@"{SearchedText}", reg_options);
+                RegexpError = false;
+                return result;
             }
             catch (Exception ex)
             {
